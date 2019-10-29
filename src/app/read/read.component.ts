@@ -12,7 +12,7 @@ export class ReadComponent implements OnInit {
 
   ngOnInit() {
     this.movieService.GetMovieInformation().subscribe((data) => {
-      this.MyMovies = data.myMovies;
+      this.MyMovies = data.movies;
       console.log(this.MyMovies);
     })
   }
