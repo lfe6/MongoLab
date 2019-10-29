@@ -110,3 +110,10 @@ app.post('/name', (req, res) => {
     })
     
 
+app.get('/api/movies/:id',(req,res)=>{
+    console.log(req.params.id);
+
+    MovieModel.findById(req.params.id ,(err,data)=>{
+  res.json(data);
+    })
+})
