@@ -60,29 +60,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/api/movies', (req, res,next) => {
-    /*const movies = [
-        {
-        "Title":"Avengers: Infinity War",
-        "Year":"2018",
-        "Poster":"https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-        },
-        {
-        "Title":"Captain America: Civil War",
-        "Year":"2016",
-        "Poster":"https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-        }
-        ]
-        res.status(200).json({
-            message: "Everything is good",
-            myMovies:movies
-        })*/
-    
+ 
     console.log ("get request") 
     MovieModel.find((err,data) =>{
         res.json({movies:data});
     })   
-    //res.send('myAPI')
     })
+
+    app.delete('/api/movies/:id', (req,res) =>{
+console.log(req.params.id);
+
+MovieModel.deleteOne({_id:req.params.id},(error,data)=>{
+    if(error)
+    res.json(error);
+        res.json(data);
+})
+})
 
 app.post('/api/movies', (req,res) =>{
     console.log('post Sucessfull');
