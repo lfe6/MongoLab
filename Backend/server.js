@@ -102,7 +102,6 @@ app.post('/name', (req, res) => {
     res.send('Hello ' + req.body.firstname + " " + req.body.lastname);
     })
     
-
 app.get('/api/movies/:id',(req,res)=>{
     console.log(req.params.id);
 
