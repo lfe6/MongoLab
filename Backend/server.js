@@ -38,7 +38,15 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/hello/:name',(req, res) => {
     console.log(req.params.name);
-    res.send('Wagwan! '  +  req.params.name)})
+    res.send('Wagwan! '  +  req.params.name)
+})
+
+    app.put('/api/movies/:id',(req,res)=>{
+        console.log("edit" +req.params.id);
+        MovieModel.findByIdAndUpdate(req,params.id,req,body,{new:true},(error,data)=>{
+            res.send(data);
+        })
+    })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieServiceService } from '../Services/movie-service.service';
+import {Router,ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-read',
